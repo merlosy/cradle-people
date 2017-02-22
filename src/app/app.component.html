@@ -1,3 +1,15 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar class="extend-toolbar">
+    <span>
+    <a [routerLink]="['/']">
+      People
+    </a>
+  </span>
+
+    <span class="flex"></span>
+
+    <span>
+    <a [routerLink]="['/people']">List</a>
+  </span>
+</md-toolbar>
+
+<router-outlet></router-outlet>
