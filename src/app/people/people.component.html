@@ -4,7 +4,6 @@
         <cap-card *ngFor="let person of people" [person]="person" (personDelete)="delete($event)"></cap-card>
     </section>
 
-
     <section *ngSwitchCase="'list'">
         <md-list>
             <md-list-item (click)="navigate(person)" *ngFor="let person of people" class="md-whiteframe-2dp md-card">
