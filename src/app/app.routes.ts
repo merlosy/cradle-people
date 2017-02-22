@@ -7,8 +7,8 @@ import { UpdateComponent } from './update/index';
 import { PersonComponent } from './person/index';
 
 const ROUTES: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
+  {path: '', redirectTo: 'people', pathMatch: 'full'},
+  // {path: 'home', component: HomeComponent},
   {path: 'people', component: PeopleComponent},
   {path: 'edit/:id', component: UpdateComponent},
   {path: 'person/:id', component: PersonComponent}

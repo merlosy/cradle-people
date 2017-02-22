@@ -18,7 +18,8 @@
         "tsconfig": "tsconfig.json",
         "prefix": "cap",
         "styles": [
-            "styles.css"
+            "styles/styles.css",
+            "styles/theme.scss"
         ],
         "scripts": [],
         "environmentSource": "environments/environment.ts",

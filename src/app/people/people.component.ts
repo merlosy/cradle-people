@@ -40,7 +40,7 @@ export class PeopleComponent implements OnInit {
      * @returns {string}
      */
     get dialogStatus(): string {
-        return this._dialogStatus
+        return this._dialogStatus;
     }
 
     /**
@@ -75,7 +75,7 @@ export class PeopleComponent implements OnInit {
      */
     add(person: any) {
         this._peopleService.create(person)
-            .flatMap(_ => this._peopleService.fetch())
+            .mergeMap( () => this._peopleService.fetch())
             .subscribe((people: any[]) => {
                 this._people = people;
                 this.hideDialog();

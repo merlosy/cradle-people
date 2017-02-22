@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/add/operator/mergeMap';
-import { PeopleService } from "../shared/index";
+import { PeopleService } from '../shared/index';
 
 @Component({
   selector: 'sfeir-update',
@@ -17,7 +17,7 @@ export class UpdateComponent implements OnInit {
    */
   constructor(private _route: ActivatedRoute, private _router: Router, private _peopleService: PeopleService) {
     this._person = {
-      id: '',
+      _id: '',
       firstname: '',
       lastname: '',
       email: '',
@@ -56,7 +56,11 @@ export class UpdateComponent implements OnInit {
    * @param person
    */
   submit(person: any) {
-    this._peopleService.update(person).subscribe(_ => this._router.navigate(['/people']));
+    this._peopleService
+      .update(person)
+      .subscribe( () => {
+        this._router.navigate(['/people']);
+      });
   }
 
   /**

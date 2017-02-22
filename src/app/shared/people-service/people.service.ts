@@ -35,8 +35,7 @@ export class PeopleService {
             .map((res: Response) => {
                 if (res.status === 200) {
                     return res.json();
-                }
-                else {
+                } else {
                     return [];
                 }
             });
@@ -52,8 +51,7 @@ export class PeopleService {
             .map((res: Response) => {
                 if (res.status === 200) {
                     return res.json();
-                }
-                else {
+                } else {
                     return {};
                 }
             });
@@ -71,8 +69,7 @@ export class PeopleService {
             .map((res: Response) => {
                 if (res.status === 200) {
                     return res.json();
-                }
-                else {
+                } else {
                     return {};
                 }
             });
@@ -90,8 +87,7 @@ export class PeopleService {
             .map((res: Response) => {
                 if (res.status === 200) {
                     return res.json();
-                }
-                else {
+                } else {
                     return [];
                 }
             });
@@ -105,7 +101,7 @@ export class PeopleService {
      * @returns {Observable<R>}
      */
     update(person: any): Observable<any> {
-        return this._http.put(this._backendURL.onePeople.replace(':id', person.id), person, this._options())
+        return this._http.put(this._backendURL.onePeople.replace(':id', person._id), person, this._options())
             .map((res: Response) => res.json());
     }
 
@@ -116,9 +112,13 @@ export class PeopleService {
      *
      * @returns {Observable<R>}
      */
-    create(person): Observable<any> {
+    create(person: any): Observable<any> {
+        delete person._id;
         return this._http.post(this._backendURL.allPeople, JSON.stringify(person), this._options())
-            .map((res: Response) => res.json());
+            .map((res: Response) => {
+                console.log(res.json());
+                res.json();
+            });
     }
 
     /**
