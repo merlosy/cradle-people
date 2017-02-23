@@ -65,7 +65,9 @@ export class PeopleComponent implements OnInit {
      * @param person
      */
     delete(person: any) {
-        this._peopleService.delete(person.id).subscribe((people: any[]) => this._people = people);
+        this._peopleService.delete(person._id)
+            .mergeMap( () => this._peopleService.fetch())
+            .subscribe((people: any[]) => this._people = people);
     }
 
     /**
